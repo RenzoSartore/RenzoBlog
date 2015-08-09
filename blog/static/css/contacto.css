@@ -1,0 +1,48 @@
+/*FORMULARIO DE CONTACTO*/
+
+.contacto{
+    padding-left: 45px ;
+
+}
+.contacto label{
+    display: block;
+    font-weight: bold;
+    color: #07AD87;
+}
+.contacto div{
+    margin-bottom: 15px;
+}
+.contacto input[type='text'], .contacto textarea{
+    padding: 7px 6px;
+    width: 294px;
+    border: 1px solid #CED5D7;
+    resize: none;
+    box-shadow:0 0 0 33333333333px #EEF5F7;
+    margin: 5px 0;
+}
+.contacto input[type='text']:focus, .contacto textarea:focus{
+    outline: none;
+    box-shadow:0 0 0 3px #dde9ec;
+}
+.contacto input[type='submit']{
+    border: 1px solid #CED5D7;
+    box-shadow:0 0 0 3px #EEF5F7;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px white;
+ 
+    background: #e4f1f6;
+    background: -moz-linear-gradient(top, #e4f1f6 0%, #cfe6ef 100%);
+    background: -webkit-linear-gradient(top, #e4f1f6 0%,#cfe6ef 100%);
+}
+.contacto input[type='submit']:hover{
+    background: blue;
+    background: -moz-linear-gradient(top, blue 0%, red 100%);
+    background: -webkit-linear-gradient(top, blue 0%,red 100%);
+}
+.contacto input[type='submit']:active{
+    background: red;
+    background: -moz-linear-gradient(top, orange 0%, green 100%);
+    background: -webkit-linear-gradient(top, orange 0%,green 100%);
+}

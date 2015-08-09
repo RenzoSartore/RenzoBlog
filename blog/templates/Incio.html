@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+  <div class="section white center">
+    <div class="row container">
+      <h2 class="header">BIENVENIDOS</h2>
+      <p class="grey-text text-darken-3 lighten-3">Sean ustedes bienvenidos al mejor blog creado por Renzo, por ahora. En este, usted tendra el plazer de realizar diversas actividades, como de gozar de la mejor experiencia acerca de Renzo en la web. Y solo eso? Si.</p>
+    </div>
+                <img class="materialboxed" width="300" src="{% static 'images/steve.png' %}">
+  </div>
+        <div class="section white center">
+                  <h2 class="header">ACTIVIDADES</h2>
+            
+    <div class="row container">
+      <div class="row">
+          
+           <div class="col s1 m4">
+          <div class="card small" style="width:300px;">
+            <div class="card-image">
+              <img src="{% static 'images/money.jpg' %}">
+              <span class="card-title">Conversor Monedas</span>
+            </div>
+            <div class="card-content">
+              <p>Conversor del sentido de la vida</p>
+            </div>
+            <div class="card-action">
+              <a href="{% url 'app_blog:conversor' %}">ABRIR</a>
+            </div>
+          </div>
+            </div>
+          
+            <div class="col s1 m4">
+            <div class="card small" style="width:300px;">
+            <div class="card-image">
+              <img src="{% static 'images/calculadora.jpg' %}">
+              <span class="card-title">Calculadora</span>
+            </div>
+            <div class="card-content">
+              <p>Calculadora para calcular</p>
+            </div>
+            <div class="card-action">
+              <a href="{% url 'app_blog:calculadora' %}">ABRIR</a>
+            </div>
+            </div>
+        </div>
+          
+                      <div class="col s1 m4">
+            <div class="card small" style="width:300px;">
+            <div class="card-image">
+              <img src="{% static 'images/galeria.jpg' %}">
+              <span class="card-title">Galeria</span>
+            </div>
+            <div class="card-content">
+              <p>Galeria para galeririar</p>
+            </div>
+            <div class="card-action">
+              <a href="{% url 'app_blog:galeria' %}">ABRIR</a>
+            </div>
+            </div>
+        </div>
+          
+                      <div class="col s1 m4">
+            <div class="card small" style="width:300px;">
+            <div class="card-image">
+              <img src="{% static 'images/cronometro.jpg' %}">
+              <span class="card-title">Cronometro</span>
+            </div>
+            <div class="card-content">
+              <p>Para medir el tiempo que estas perdiendo</p>
+            </div>
+            <div class="card-action">
+              <a href="{% url 'app_blog:cronometro' %}">ABRIR</a>
+            </div>
+            </div>
+        </div>
+          
+                            <div class="col s1 m4">
+            <div class="card small" style="width:300px;">
+            <div class="card-image">
+              <img src="{% static 'images/concurso.jpg' %}">
+              <span class="card-title">Concurso</span>
+            </div>
+            <div class="card-content">
+              <p>Si ganas conoceras a Renzo</p>
+            </div>
+            <div class="card-action">
+              <a href="{% url 'app_blog:concurso' %}">ABRIR</a>
+            </div>
+            </div>
+        </div>
+          
+                            <div class="col s1 m4">
+            <div class="card small" style="width:300px;">
+            <div class="card-image">
+              <img src="{% static 'images/renzo.jpg' %}">
+              <span class="card-title">Curriculum</span>
+            </div>
+            <div class="card-content">
+              <p>Conoce mas sobre Renzo</p>
+                
+            </div>
+            <div class="card-action">
+              <a href="{% url 'app_blog:curriculum' %}">ABRIR</a>
+            </div></div>
+            </div>
+                      </div>
+        
+<h2 class="header">POSTS</h2>
+                
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        {% for post in posts %}
+        <div class="post-preview">
+            <a href="{% url 'app_blog:vermipost' post.id %}">
+                <h2 class="post-title">
+                    {{post.titulo}}
+                </h2>
+                <h4 class="post-subtitle">
+                    {{post.resumen}}
+                </h3>
+            </a>
+            <p class="post-meta">Posteado por {{post.autor}}</p>
+        </div>
+        <hr>
+        {% endfor %}
+
+        <!-- Pager -->
+        <ul class="pager">
+            <li class="next">
+                <a href="#">Post anteriores &rarr;</a>
+            </li>
+        </ul>
+    </div>
+</div>     
+                
+            </div>
+        </div>
+      </div>
+    </div>      
+      
+      
+{% endblock %}

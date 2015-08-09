@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+        <div class="section white center">
+                  <h2 class="header">GALERIA</h2>
+                 <p class="grey-text text-darken-3 lighten-3">Algunas fotos de gente casi tan importante como Renzo</p>
+    <div class="row container">
+      <div class="row"> 
+          
+        <img class="materialboxed"  src="images/1.jpg" id="imagen">
+        <br>
+        <img src="{% static 'images/bar.png' %}" name="bar"/>
+        <br>
+          <input id="%" type="text-center" value=""/>
+        
+
+    </div>
+          
+          
+
+            </div>
+      </div>
+
+<script>
+    
+    var Int2;
+Int2 = setInterval(progress, 50);
+var Int1;
+Int1 = setInterval(ChangeImg, 5000);
+var img = ["{% static 'images/1.jpg' %}", "{% static 'images/2.jpg' %}", "{% static 'images/3.jpg' %}", "{% static 'images/4.jpg' %}"];
+var asd = 2;
+    var cont =0;
+function ChangeImg(){
+    number = Math.floor((Math.random() * 4) + 0);
+    if (asd!=number){
+        document.getElementById("imagen").setAttribute("src", img[number]);
+        asd = number;
+        cont = 0;
+    }else{
+        cont=cont+1;
+        if (cont<3){
+           ChangeImg();
+        }else{
+            document.getElementById("imagen").setAttribute("src", img[number+1]);
+        }
+    }
+
+}
+    count=0; 
+    function progress() {
+    if (document.images["bar"].width < 495) {
+    document.images["bar"].width += 5;
+    document.images["bar"].height = 20;
+    count = count + 1;
+    document.getElementById("%").setAttribute("value",count + " %");
+  } else {
+    count = 0;
+    document.images["bar"].width = 0;
+    }
+    }  
+    $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+    
+     $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+
+    
+
+    $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+    
+</script>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+        <div class="section white ">
+                  <h2 class="header center">CONCURSO</h2>
+                  <p class="grey-text text-darken-3 lighten-3 center">Completa el formulario y escribe un mensaje de por que quiere conocer a Renzo. Nuestro staff elegira al ganador. </p>
+    </div>
+    <div class="row container">
+        
+            <style>
+    #button {
+        position:   absolute;
+        setTimeout( 100,1000)
+        top:100px;
+        left:100px;
+    }
+    </style>
+        
+                    <li><label>Tu Nombre:</label><input type='text' value=''></li>
+            <li><label>Tu Email:</label><input type='text' value=''></li>
+            <li><label>Asunto:</label><input type='text' value=''></li>
+            <li><label>Mensaje:</label><textarea rows='6'></textarea></li>
+            <li><button id="button">Enviar</button></li>        
+    </div>
+     
+<script>
+    var button = document.getElementById("button");
+    var browserWidth = window.innerWidth || document.documentElement.clientWidth;
+    var browserHeight = window.innerHeight || document.documentElement.clientHeight;
+    var buttonWidth = button.offsetWidth;
+    var buttonHeight = button.offsetHeight;
+ 
+    function move() {
+        button.style.left = Math.floor(Math.random()*(browserWidth-buttonWidth)) + "px";
+        button.style.right = Math.floor(Math.random()*(browserHeight-buttonHeight)) + "px";
+    }
+ 
+    if(typeof addEventListener !== "undefined") {
+        button.addEventListener("mouseover", move, false);
+    } else if (typeof attachEvent !== "undefined") {
+        button.attachEvent("onmouseover", move);
+    } else {
+        button.onmousover = move;
+    }
+
+    $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+    
+</script>
+
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+        <div class="section white center">
+                  <h2 class="header">CALCULADORA</h2>
+    <div class="row container">
+    <input id="resultado" class="reulst" type="text center" style="    font-size: 1.6rem;" value=""/>
+    <br>
+    <br>
+    <div class="calcu">
+    <input type="button" class="btn" style="  height: 54px;
+    width: 100px;
+  line-height: 56px; }
+  .btn-large i {
+    font-size: 1.6rem; " id="btn1" onclick="ejecutar(this)" value="1" />
+    <input type="button" class="btn" style="height: 54px;     width: 100px;   line-height: 56px; }   .btn-large i {     font-size: 1.6rem; " id="btn2" onclick="ejecutar(this)" value="2" />
+    <input type="button" class="btn" style="height: 54px;     width: 100px;   line-height: 56px; }   .btn-large i {     font-size: 1.6rem; " id="btn3" onclick="ejecutar(this)" value="3" />
+    <input type="button" class="btn" style="height: 54px;     width: 100px;   line-height: 56px; }   .btn-large i {     font-size: 1.6rem; " id="btnmas" onclick="ejecutar(this)" value="+" />
+    <br>
+    <input type="button" class="btn" style="height: 54px;     width: 100px;   line-height: 56px; }   .btn-large i {     font-size: 1.6rem; " id="btn4" onclick="ejecutar(this)" value="4" />
+    <input type="button" class="btn" style="height: 54px;     width: 100px;   line-height: 56px; }   .btn-large i {     font-size: 1.6rem; " id="btn5" onclick="ejecutar(this)" value="5" />
+    <input type="button" class="btn" style="height: 54px;     width: 100px;   line-height: 56px; }   .btn-large i {     font-size: 1.6rem; " id="btn6" onclick="ejecutar(this)" value="6" />
+    <input type="button" class="btn" style="height: 54px;     width: 100px;   line-height: 56px; }   .btn-large i {     font-size: 1.6rem; " id="btnmenos" onclick="ejecutar(this)" value="-" />
+    <br>
+    <input type="button" class="btn" style="height: 54px;     width: 100px;   line-height: 56px; }   .btn-large i {     font-size: 1.6rem; " id="btn7" onclick="ejecutar(this)" value="7" />
+    <input type="button" class="btn" style="height: 54px;     width: 100px;   line-height: 56px; }   .btn-large i {     font-size: 1.6rem; " id="btn8" onclick="ejecutar(this)" value="8" />
+    <input type="button" class="btn" style="height: 54px;     width: 100px;   line-height: 56px; }   .btn-large i {     font-size: 1.6rem; " id="btn9" onclick="ejecutar(this)" value="9" />
+    <input type="button" class="btn" style="height: 54px;     width: 100px;   line-height: 56px; }   .btn-large i {     font-size: 1.6rem; " id="btnpor" onclick="ejecutar(this)" value="*" />
+    <br>
+    <input type="button" class="btn" style="height: 54px;     width: 100px;   line-height: 56px; }   .btn-large i {     font-size: 1.6rem; " id="btnp" onclick="ejecutar(this)" value="." />
+    <input type="button" class="btn" style="height: 54px;     width: 100px;   line-height: 56px; }   .btn-large i {     font-size: 1.6rem; " id="btn0" onclick="ejecutar(this)" value="0" />
+    <input type="button" class="btn" style="height: 54px;     width: 100px;   line-height: 56px; }   .btn-large i {     font-size: 1.6rem; " id="btne" onclick="ejecutar(this)" value="=" />
+    <input type="button" class="btn" style="height: 54px;     width: 100px;   line-height: 56px; }   .btn-large i {     font-size: 1.6rem; " id="btndiv" onclick="ejecutar(this)" value="/" />
+    <br>
+    <input type="button" class="btn" id="btnc" onclick="ejecutar(this)" style="height: 54px;
+    width: 410px;
+    margin-top: 5px;
+  line-height: 56px; }
+  .btn-large i {
+    font-size: 1.6rem; " value="CLEAR" />
+      </div>
+        
+    </div>
+  </div>
+      
+<script>
+        function suma(var1, var2) {
+        return parseInt(var1) + parseInt(var2);   
+    }
+
+    reset=false;
+
+
+
+    function ejecutar(botoncitodelacalculadorita) {
+
+
+        aprieta = botoncitodelacalculadorita.value;
+        val = document.getElementById("resultado").value;
+
+        if (reset==true) {
+            document.getElementById("resultado").setAttribute("value",aprieta);
+            reset=false;
+        }
+        else{
+            if (aprieta=="=")
+            {
+                if (val.length!=0)
+                {
+                    result = eval(val);//TODO Hacer la funcion que me de el resultado
+                    document.getElementById("resultado").setAttribute("value",result);
+                    reset=true;
+                }
+            }               
+            else{ 
+                document.getElementById("resultado").setAttribute("value",val+aprieta);
+            }
+
+        }
+       if (aprieta=="CLEAR")
+            {
+                document.getElementById("resultado").setAttribute("value","");
+            } 
+
+    }
+
+    $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+    
+</script>
+
+{% endblock %}

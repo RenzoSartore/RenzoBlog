@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% load staticfiles %}   
+        <div class="section white center">
+                  <h2 class="header">CONVERSOR</h2>
+    <div class="row container">
+      <div class="row">      
+        
+            <select id="cambio1">
+        <option value="arg">ARG</option>
+        <option value="dol">DOL</option>
+        <option value="eur">EUR</option>
+        <option value="urg">URG</option>
+        <option value="chl">CHL</option>
+        <option value="rel">REL</option>
+    </select>   
+    <br>
+    <input id="txbMonto1" type="text" value=""/> 
+    <br>
+    <br> 
+    <select id="cambio2"> 
+        <option value="arg">ARG</option>
+        <option value="dol">DOL</option>
+        <option value="eur">EUR</option>
+        <option value="urg">URG</option>
+        <option value="chl">CHL</option>
+        <option value="rel">REL</option>
+    </select> 
+    <input type="button" class="btn" id="btncon" onclick="conversion(this)" value="Convertir" />
+    <br>    
+    <input id="txbMonto2"  type="text" value=""/> 
+
+    </div>
+          
+          
+
+            </div>
+      </div>
+      
+      
+<script>
+    
+        function conversion (Convertir){
+        aprieta = Convertir.value;
+        monto1 = document.getElementById("txbMonto1").value;
+        moneda1 = document.getElementById("cambio1").selectedIndex;
+        monto2 = document.getElementById("txbMonto2").value;
+        moneda2 = document.getElementById("cambio2").selectedIndex;
+
+        switch (moneda1){
+            case 0:
+                cotizacion1 = 1;
+                break;
+            case 1:
+                cotizacion1 = 0.11261;
+                break;
+            case 2:
+                cotizacion1 = 0.10477;
+                break;
+            case 3:
+                cotizacion1 = 2,95306;
+                break;
+            case 4:
+                cotizacion1 = 69.5528;
+                break;
+            case 5:
+                cotizacion1 = 0.33775;
+                break;    
+        }
+        
+        switch (moneda2){
+            case 0:
+                cotizacion2 = 1;
+                break;
+            case 1:
+                cotizacion2 = 0.11261;
+                break;
+            case 2:
+                cotizacion2 = 0.10477;
+                break;
+            case 3:
+                cotizacion2 = 2.95306;
+                break;
+            case 4:
+                cotizacion2 = 69.5528;
+                break;
+            case 5:
+                cotizacion2 = 0.33775;
+                break;
+        }
+        console.log(moneda1,moneda2,cotizacion1,cotizacion2);    
+        if (aprieta=="Convertir"){   
+            aux = (monto1/cotizacion1)*cotizacion2;      
+            document.getElementById("txbMonto2").setAttribute("value", aux);	
+        }
+
+
+
+    }
+    
+      $(document).ready(function() {
+    $('select').material_select();
+  });
+    
+</script>
+
+{% endblock %}
